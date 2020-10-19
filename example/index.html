@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  hello
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.1.0/axios.min.js"></script>
+<script>
+  if (axios) {
+    axios({
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      url: 'http://localhost:1234',
+      method: 'get',
+      data: {},
+    }).then((res) => {
+      return (res.data && res.data.data) || res.data;
+    }).catch((err) => {
+      throw new Error(err);
+    });
+  }
+</script>
+</html>
